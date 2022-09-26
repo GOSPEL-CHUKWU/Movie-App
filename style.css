@@ -190,7 +190,7 @@ a:hover {
   opacity: 50%;
 }
 
-.movies {
+#movies {
   height: 1635px;
   background: linear-gradient(
     to top left,
@@ -204,6 +204,7 @@ a:hover {
   font-size: 40px;
   color: rgb(252, 243, 243);
 }
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -211,57 +212,67 @@ a:hover {
   padding: 2.9rem;
 }
 .img-container {
+  position: relative;
   margin-top: 5px;
   height: 24.8rem;
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
+  /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075); */
   overflow: hidden;
-}
-.img-container:hover {
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
   border-radius: 11px;
-  background-color: black;
+
+  width: 24.8rem;
+}
+.img-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+.img-container:hover::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.img-container img {
+  display: block;
+}
+.action-btn {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  gap: 30px;
+}
+.img-container button {
+  background: white;
+  color: rgb(204, 99, 204);
+  width: 100%;
+  padding: 10px 19px;
+  border-radius: 30px;
+  font-size: 30px;
+
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.img-container button:hover {
+  background: rgb(204, 99, 204);
+  color: white;
+}
+.img-container:hover button {
+  opacity: 1;
 }
 .container-img {
   max-width: 100%;
   display: block;
   width: 100%;
-  transition: all 0.4s;
+  transition: all 0.5s;
   border-radius: 0;
 }
 .container-img:hover {
-  opacity: 0.5;
   border-radius: 0;
   transform: scale(1.1);
 }
-.hover {
-  height: 24.8;
-}
-.action-btn {
-  position: absolute;
-  display: flex;
-  margin-top: 12.5%;
-  margin-left: 9.5%;
-  /* justify-content: center;
-  align-items: center; */
-  gap: 2rem;
-}
-button {
-  background: white;
-  color: rgb(204, 99, 204);
-  width: 50%;
-  padding: 10px 19px;
-  border-radius: 30px;
-  font-size: 30px;
-}
-button:hover {
-  background: rgb(204, 99, 204);
-  color: white;
-  opacity: 1;
-}
-.hidden {
-  display: none;
-}
+
 .next-page {
   text-align: end;
   margin-top: 30px;
